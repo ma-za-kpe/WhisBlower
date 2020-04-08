@@ -10,6 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.ViewCompat.animate
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.maku.whisblower.databinding.ActivityMainBinding
 import com.maku.whisblower.utils.NetworkUtils
@@ -32,6 +33,9 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.AppTheme)  // Set AppTheme before setting content view.
 
         super.onCreate(savedInstanceState)
+
+        //initialize the binding
+        mViewBinding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
         //handle newtwork changes
         handleNetworkChanges()
