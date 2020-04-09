@@ -9,7 +9,7 @@
 
     <color name="post_background">#0DFFFFFF</color>
 
-    <color name="imageBackgroundTint">#006064</color>
+    <color name="imageBackgroundTint">#E91E63</color>
     <color name="icons_pink">#F400DC</color>
 
 </resources>

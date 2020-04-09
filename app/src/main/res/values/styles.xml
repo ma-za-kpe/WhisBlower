@@ -19,7 +19,7 @@
         <item name="material_dialog_background">@color/windowBackground</item>
         <item name="material_dialog_message_text_color">@color/textColor</item>
         <item name="material_dialog_title_text_color">@color/textColor</item>
-        <item name="material_dialog_positive_button_color">@color/colorAccent</item>
+        <item name="material_dialog_positive_button_color">@color/icons_pink</item>
         <item name="material_dialog_positive_button_text_color">@color/colorPrimary</item>
         <item name="material_dialog_negative_button_text_color">@color/colorAccent</item>
     </style>
@@ -43,11 +43,16 @@
         <item name="android:layout_marginTop">@dimen/dimen_8</item>
     </style>
 
-    <style name="PostImage">
-        <item name="android:layout_marginTop">@dimen/dimen_16</item>
-        <item name="android:layout_marginEnd">@dimen/dimen_16</item>
-        <item name="android:layout_marginBottom">@dimen/dimen_16</item>
-        <item name="android:scaleType">centerCrop</item>
+    <style name="report">
+
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:textColor">
+            #ECECEC
+        </item>
+
     </style>
 
     <style name="StatusTextView">
