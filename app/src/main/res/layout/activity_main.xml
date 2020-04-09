@@ -31,7 +31,7 @@
             </LinearLayout>
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_marginTop="39dp"
+                android:layout_marginTop="24dp"
                 android:layout_marginBottom="27dp"
                 android:id="@+id/card"
                 android:layout_width="271dp"
@@ -60,12 +60,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
+                        android:textStyle="bold"
                         android:text="@string/supporting_text"
                         android:textAppearance="?attr/textAppearanceBody2"
                         android:textColor="?android:attr/textColorSecondary" />
 
                     <TextView
                         android:id="@+id/more"
+                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
