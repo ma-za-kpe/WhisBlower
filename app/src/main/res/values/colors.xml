@@ -8,6 +8,8 @@
 
     <color name="textColor">@android:color/black</color>
     <color name="bulbColor">#A10097</color>
+    <color name="share">#A10097</color>
+    <color name="call">#A10097</color>
     <color name="post_background">@android:color/white</color>
 
     <color name="imageBackgroundTint">#C3C3C3</color>

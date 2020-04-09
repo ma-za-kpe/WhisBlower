@@ -17,10 +17,7 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.maku.whisblower.databinding.ActivityMainBinding
-import com.maku.whisblower.utils.NetworkUtils
-import com.maku.whisblower.utils.getColorRes
-import com.maku.whisblower.utils.hide
-import com.maku.whisblower.utils.show
+import com.maku.whisblower.utils.*
 import com.shreyaspatil.MaterialDialog.MaterialDialog
 
 class MainActivity : AppCompatActivity() {
@@ -135,9 +132,17 @@ class MainActivity : AppCompatActivity() {
                         AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
                     }
 
-                // Change UI Mode
+                // Call for help change UI Mode
                 AppCompatDelegate.setDefaultNightMode(mode)
                 true
+            }
+            R.id.action_share -> {
+                showToast("Share App with friends")
+                return true
+            }
+            R.id.action_call -> {
+                showToast("Share App with friends")
+                return true
             }
 
             else -> true

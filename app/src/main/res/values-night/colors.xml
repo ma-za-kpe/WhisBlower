@@ -6,6 +6,9 @@
 
     <color name="textColor">@android:color/white</color>
     <color name="bulbColor">@android:color/white</color>
+    <color name="share">@android:color/white</color>
+    <color name="call">@android:color/white</color>
+
 
     <color name="post_background">#0DFFFFFF</color>
 
