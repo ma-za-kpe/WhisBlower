@@ -1,25 +1,29 @@
 package com.maku.whisblower
 
+import android.Manifest
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.content.res.Configuration
-import android.graphics.Typeface
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import android.text.style.StyleSpan
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.maku.whisblower.databinding.ActivityMainBinding
 import com.maku.whisblower.utils.*
 import com.shreyaspatil.MaterialDialog.MaterialDialog
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -150,7 +154,32 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_call -> {
-                showToast("Share App with friends")
+                showToast("Call For help")
+                val intentCall =
+                    Intent(Intent.ACTION_CALL, Uri.parse("tel:" + "+256703818546"))
+                if (ActivityCompat.checkSelfPermission(
+                        this,
+                        Manifest.permission.CALL_PHONE
+                    ) != PackageManager.PERMISSION_GRANTED
+                ) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                     ActivityCompat.requestPermissions(
+                        this,
+                         arrayOf(Manifest.permission.CALL_PHONE),
+                        100
+                    );
+
+                }else{
+                     //You already have permission
+                        startActivity(intentCall);
+                }
+
                 return true
             }
 
@@ -177,5 +206,23 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val ANIMATION_DURATION = 1000.toLong()
+    }
+
+    //permission
+    //This method will be called when the user will tap on allow or deny
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String?>,
+        grantResults: IntArray
+    ): Unit { //Checking the request code of our request
+        if (requestCode == 100) { //If permission is granted
+            if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                //Displaying a toast
+                showToast("Permission granted you can now make calls")
+            } else {
+                //Displaying another toast if permission is not granted
+             showToast("Oops you just denied the permission")
+            }
+        }
     }
 }
