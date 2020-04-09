@@ -3,6 +3,7 @@ package com.maku.whisblower
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
@@ -138,6 +139,14 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_share -> {
                 showToast("Share App with friends")
+                val sendIntent: Intent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    putExtra(Intent.EXTRA_TEXT, "Click this link to share this app.")
+                    type = "text/plain"
+                }
+
+                val shareIntent = Intent.createChooser(sendIntent, null)
+                startActivity(shareIntent)
                 return true
             }
             R.id.action_call -> {
