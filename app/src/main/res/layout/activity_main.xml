@@ -7,12 +7,6 @@
 
     </data>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipeRefreshLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:animateLayoutChanges="true">
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -35,6 +29,132 @@
                     android:layout_height="wrap_content"
                     tools:text="@string/text_no_connectivity" />
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/card"
+                android:layout_width="271dp"
+                android:layout_height="200.81dp"
+                android:layout_marginTop="39dp"
+                android:layout_marginBottom="27dp"
+                android:background="@drawable/dialog_bg"
+                android:elevation="38dp"
+                android:orientation="vertical"
+                android:padding="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/secondary_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <TextView
+                    android:id="@+id/optional"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/supporting_text"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <TextView
+                    android:id="@+id/more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/supporting_text1"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+            </LinearLayout>
+
+            <ScrollView
+                android:layout_width="271dp"
+                android:layout_height="200.81dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textAppearance="@style/spouse_s_na"
+                        android:gravity="top"
+                        android:id="@+id/spouse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/spouse"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <EditText
+                        android:gravity="center"
+                        android:hint="@string/enter_spouses_name"
+                        android:layout_marginTop="9dp"
+                        android:background="@drawable/text_input_bg"
+                        android:id="@+id/spouseinput"
+                        android:layout_width="251dp"
+                        android:layout_height="38dp"/>
+
+                    <TextView
+                        android:textAppearance="@style/spouse_s_na"
+                        android:gravity="top"
+                        android:id="@+id/mess"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/message"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <EditText
+                        android:gravity="center"
+                        android:hint="@string/enter_your_message"
+                        android:inputType="textMultiLine"
+                        android:layout_marginTop="9dp"
+                        android:background="@drawable/edittext"
+                        android:id="@+id/message"
+                        android:layout_width="251dp"
+                        android:layout_height="86dp"/>
+
+                    <TextView
+                        android:textAppearance="@style/spouse_s_na"
+                        android:gravity="top"
+                        android:id="@+id/loc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/location"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <EditText
+                        android:gravity="center"
+                        android:hint="@string/enter_location"
+                        android:layout_marginTop="9dp"
+                        android:background="@drawable/text_input_bg"
+                        android:id="@+id/location"
+                        android:layout_width="251dp"
+                        android:layout_height="38dp"/>
+
+                    <TextView
+                        android:textAppearance="@style/spouse_s_na"
+                        android:gravity="top"
+                        android:id="@+id/org"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/org"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>

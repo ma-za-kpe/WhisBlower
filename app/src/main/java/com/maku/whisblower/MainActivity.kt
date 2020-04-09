@@ -4,12 +4,16 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.content.Context
 import android.content.res.Configuration
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.StyleSpan
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.view.ViewCompat.animate
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.maku.whisblower.databinding.ActivityMainBinding
@@ -39,6 +43,41 @@ class MainActivity : AppCompatActivity() {
 
         //handle newtwork changes
         handleNetworkChanges()
+
+        //hightlihging
+        //build the spannable String for 50 shillings
+        val optional = resources.getString(R.string.supporting_text);
+
+        val spannableO = SpannableString(optional);
+        spannableO.setSpan(
+            ForegroundColorSpan(resources.getColor(R.color.icons_pink)),
+            9, 10,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+        mViewBinding.optional.text = spannableO
+
+        //more
+        val more = resources.getString(R.string.supporting_text1);
+
+        val spannableM = SpannableString(more);
+        spannableM.setSpan(
+            ForegroundColorSpan(resources.getColor(R.color.icons_pink)),
+            14, 15,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+        mViewBinding.more.text = spannableM
+
+        //locatioon asterics
+        val location = resources.getString(R.string.location);
+
+        val spannableL = SpannableString(location);
+        spannableL.setSpan(
+            ForegroundColorSpan(resources.getColor(R.color.icons_pink)),
+            0, 1,
+            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+        );
+        mViewBinding.loc.text = spannableL
+
     }
 
     /**
@@ -76,6 +115,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)

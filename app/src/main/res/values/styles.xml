@@ -61,11 +61,16 @@
         <item name="android:visibility">gone</item>
     </style>
 
-    <style name="PostsRecyclerStyle">
-        <item name="android:clipToPadding">false</item>
-        <item name="android:scrollbars">vertical</item>
-        <item name="android:paddingTop">@dimen/dimen_4</item>
-    </style>
+    <style name="spouse_s_na">
 
+        <item name="android:textSize">
+            15sp
+        </item>
+
+        <item name="android:textColor">
+            #F0F0F0
+        </item>
+
+    </style>
 
 </resources>
