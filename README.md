@@ -1,17 +1,29 @@
 # WhisBlower(Sikimyii)
 ![](media/media.png)
 ## About
- An app for domestic violence victims to easily get help from the responsible organisations incase of danger.
+ An app for domestic violence victims to easily get help from the responsible organisations incase of danger. The app also unistalls its self if the user accepts to.
 
 ## Built With 🛠
 - [Kotlin](https://kotlinlang.org/) - First class and official programming language for Android development.
 - [ViewBinding](https://developer.android.com/topic/libraries/view-binding) - Generates a binding class for each XML layout file present in that module and allows you to more easily write code that interacts with views.
 - [In-app Updates](https://developer.android.com/guide/playcore/in-app-updates) - Lets the app download updates seemlessly with out interrupting the user experince with the app.
+- [Span](https://developer.android.com/guide/topics/text/spans) - Spans are powerful markup objects that you can use to style text at a character or paragraph level.
+- [Material design](https://material.io/collections/developer-tutorials/#android-java) - Material is a design system – backed by open-source code – that helps teams build high-quality digital experiences.
+
+## FEATURES & APP FUNCTIONALITY
+- Splash screen.
+- Toggle between Dark and Light mode.
+- Share Feature.
+- Call for hel feature.
+- Use of the Span Android API.
+- screen orientation(Potrait and lanscape).
+- Unistall feature.
 
 ## TODO
 - Add the organisations functionality once we are partnered up.
 - Use DI to handle dependecies and make the app very scalable and testable.
 - Add in-app updates to the app.
+- Add linkk to play store in the share fetaure.
 - etc...
 
 ## Contact
