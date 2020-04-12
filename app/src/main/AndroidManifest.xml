@@ -23,6 +23,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:theme="@style/AppTheme.Splash"
             android:screenOrientation="fullSensor"
             android:resizeableActivity="true"
             android:name=".MainActivity">

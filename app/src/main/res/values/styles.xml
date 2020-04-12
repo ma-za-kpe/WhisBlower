@@ -26,6 +26,7 @@
 
     <!-- The splash theme to set the background with your splash screen drawable -->
     <style name="AppTheme.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/statusBarColor</item>
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 
