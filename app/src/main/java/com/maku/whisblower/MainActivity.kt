@@ -46,6 +46,11 @@ class MainActivity : AppCompatActivity() {
         //handle newtwork changes
         handleNetworkChanges()
 
+        //unistall app from the users phone
+        mViewBinding.unistall?.setOnClickListener { view ->
+            unistallAppFromPhone()
+        }
+
         //hightlihging
         //build the spannable String for 50 shillings
         val optional = resources.getString(R.string.supporting_text);
@@ -80,6 +85,12 @@ class MainActivity : AppCompatActivity() {
         );
         mViewBinding.loc.text = spannableL
 
+    }
+
+    private fun unistallAppFromPhone() {
+        val packageUri = Uri.parse("package:$packageName");
+        val intent = Intent(Intent.ACTION_DELETE, packageUri);
+        startActivity(intent);
     }
 
     /**
@@ -129,7 +140,7 @@ class MainActivity : AppCompatActivity() {
             R.id.action_theme -> {
                 // Get new mode.
                 val mode =
-                    if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
+                    if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK ) ==
                         Configuration.UI_MODE_NIGHT_NO
                     ) {
                         AppCompatDelegate.MODE_NIGHT_YES
@@ -206,6 +217,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         const val ANIMATION_DURATION = 1000.toLong()
+        const val UNINSTALL_REQUEST_CODE = 1;
+
     }
 
     //permission

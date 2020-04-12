@@ -2,6 +2,8 @@ package com.maku.whisblower
 
 import android.app.Application
 import android.content.Context
+import androidx.appcompat.app.AppCompatDelegate
+import com.maku.whisblower.utils.isNight
 import timber.log.Timber
 
 class WhisBlower : Application(){
@@ -17,6 +19,7 @@ class WhisBlower : Application(){
         fun applicationContext() : Context {
             return instance!!.applicationContext
         }
+
     }
 
     override fun onCreate() {
@@ -24,8 +27,14 @@ class WhisBlower : Application(){
         //timber
         Timber.plant(Timber.DebugTree())
 
-        //fonts
+        // Get UI mode and set
+        val mode = if (isNight()) {
+            AppCompatDelegate.MODE_NIGHT_YES
+        } else {
+            AppCompatDelegate.MODE_NIGHT_NO
+        }
 
+        AppCompatDelegate.setDefaultNightMode(mode)
     }
 
 }

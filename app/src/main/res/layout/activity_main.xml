@@ -36,16 +36,16 @@
                 android:id="@+id/card"
                 android:layout_width="271dp"
                 app:cardElevation="8dp"
-                android:layout_height="200.81dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
-                    android:layout_width="271dp"
-                    android:layout_height="200.81dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="8dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -60,20 +60,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
-                        android:textStyle="bold"
                         android:text="@string/supporting_text"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/more"
-                        android:textStyle="bold"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
                         android:text="@string/supporting_text1"
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -200,6 +200,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/unistall"
                         android:layout_marginTop="8dp"
                         android:background="@drawable/btn_bg"
                         android:text="@string/report"

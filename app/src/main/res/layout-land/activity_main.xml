@@ -42,6 +42,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
+                android:id="@+id/layoutCard"
                 android:layout_width="271dp"
                 android:layout_height="200.81dp"
                 android:orientation="vertical"
@@ -81,6 +82,7 @@
 
 
         <ScrollView
+            android:id="@+id/scroolavieww"
             android:layout_width="271dp"
             android:layout_height="0dp"
             android:layout_marginEnd="24dp"
@@ -198,6 +200,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/unistall"
                     style="@style/report"
                     android:layout_marginBottom="8dp"
                     android:layout_width="wrap_content"
