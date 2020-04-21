@@ -14,7 +14,7 @@
 - Splash screen.
 - Toggle between Dark and Light mode.
 - Share Feature.
-- Call for hel feature.
+- Call for help feature.
 - Use of the Span Android API.
 - screen orientation(Potrait and lanscape).
 - Unistall feature.
