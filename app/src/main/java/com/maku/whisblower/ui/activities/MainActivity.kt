@@ -9,9 +9,6 @@ import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
-import android.text.Spannable
-import android.text.SpannableString
-import android.text.style.ForegroundColorSpan
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +16,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import com.maku.whisblower.R
 import com.maku.whisblower.WhisBlower
 import com.maku.whisblower.databinding.ActivityMainBinding
@@ -46,54 +47,23 @@ class MainActivity : AppCompatActivity() {
             R.layout.activity_main
         )
 
+        mViewBinding.setLifecycleOwner(this);
+
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration: AppBarConfiguration = AppBarConfiguration.Builder(
+                R.id.mainFragment
+            )
+            .build()
+        val navController: NavController =
+            Navigation.findNavController(this, R.id.nav_host_fragment)
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
+
         //handle newtwork changes
         handleNetworkChanges()
 
-        //unistall app from the users phone
-        mViewBinding.unistall?.setOnClickListener { view ->
-            unistallAppFromPhone()
-        }
-
-        //hightlihging
-        //build the spannable String for 50 shillings
-        val optional = resources.getString(R.string.supporting_text);
-
-        val spannableO = SpannableString(optional);
-        spannableO.setSpan(
-            ForegroundColorSpan(resources.getColor(R.color.icons_pink)),
-            9, 10,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        );
-        mViewBinding.optional.text = spannableO
-
-        //more
-        val more = resources.getString(R.string.supporting_text1);
-
-        val spannableM = SpannableString(more);
-        spannableM.setSpan(
-            ForegroundColorSpan(resources.getColor(R.color.icons_pink)),
-            14, 15,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        );
-        mViewBinding.more.text = spannableM
-
-        //locatioon asterics
-        val location = resources.getString(R.string.location);
-
-        val spannableL = SpannableString(location);
-        spannableL.setSpan(
-            ForegroundColorSpan(resources.getColor(R.color.icons_pink)),
-            0, 1,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        );
-        mViewBinding.loc.text = spannableL
-
-    }
-
-    private fun unistallAppFromPhone() {
-        val packageUri = Uri.parse("package:$packageName");
-        val intent = Intent(Intent.ACTION_DELETE, packageUri);
-        startActivity(intent);
     }
 
     /**
@@ -143,7 +113,7 @@ class MainActivity : AppCompatActivity() {
             R.id.action_theme -> {
                 // Get new mode.
                 val mode =
-                    if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK ) ==
+                    if ((resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) ==
                         Configuration.UI_MODE_NIGHT_NO
                     ) {
                         AppCompatDelegate.MODE_NIGHT_YES
@@ -183,15 +153,15 @@ class MainActivity : AppCompatActivity() {
                     //                                          int[] grantResults)
                     // to handle the case where the user grants the permission. See the documentation
                     // for ActivityCompat#requestPermissions for more details.
-                     ActivityCompat.requestPermissions(
+                    ActivityCompat.requestPermissions(
                         this,
-                         arrayOf(Manifest.permission.CALL_PHONE),
+                        arrayOf(Manifest.permission.CALL_PHONE),
                         100
                     );
 
-                }else{
-                     //You already have permission
-                        startActivity(intentCall);
+                } else {
+                    //You already have permission
+                    startActivity(intentCall);
                 }
 
                 return true
@@ -206,7 +176,7 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         MaterialDialog.Builder(this)
             .setTitle("Exit?")
-            .setMessage("Are you sure want to exit?")
+            .setMessage("Are you sure you want to exit?")
             .setPositiveButton("Yes") { dialogInterface, _ ->
                 dialogInterface.dismiss()
                 super.onBackPressed()
@@ -224,21 +194,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    //permission
-    //This method will be called when the user will tap on allow or deny
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String?>,
-        grantResults: IntArray
-    ): Unit { //Checking the request code of our request
-        if (requestCode == 100) { //If permission is granted
-            if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                //Displaying a toast
-                showToast("Permission granted you can now make calls")
-            } else {
-                //Displaying another toast if permission is not granted
-             showToast("Oops you just denied the permission")
-            }
-        }
-    }
 }

@@ -7,20 +7,16 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.activity.MainActivity">
-
         <LinearLayout
             android:id="@+id/networkStatusLayout"
             style="@style/StatusView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorStatusNotConnected"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:background="@color/colorStatusNotConnected">
 
             <TextView
                 android:id="@+id/textViewNetworkStatus"
@@ -30,191 +26,30 @@
                 tools:text="@string/text_no_connectivity" />
         </LinearLayout>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/card"
-            android:layout_width="271dp"
-            android:layout_height="200.81dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginBottom="24dp"
-            app:cardElevation="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+        <fragment
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/mobile_navigation" />
 
-            <LinearLayout
-                android:id="@+id/layoutCard"
-                android:layout_width="271dp"
-                android:layout_height="200.81dp"
-                android:orientation="vertical"
-                android:padding="16dp">
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottom_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:fabAlignmentMode="end"
+            app:hideOnScroll="true"
+            app:navigationIcon="@drawable/ic_hamburger" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/secondary_text"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-                <TextView
-                    android:id="@+id/optional"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/supporting_text"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/more"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/supporting_text1"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/emergency_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_anchor="@id/bottom_app_bar"
+            />
 
 
-        <ScrollView
-            android:id="@+id/scroolavieww"
-            android:layout_width="271dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/card"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/spouse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="top"
-                    android:text="@string/spouse"
-                    android:textAppearance="@style/spouse_s_na"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-                <EditText
-                    android:id="@+id/spouseinput"
-                    android:layout_width="251dp"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="9dp"
-                    android:background="@drawable/text_input_bg"
-                    android:gravity="center"
-                    android:hint="@string/enter_spouses_name" />
-
-                <TextView
-                    android:id="@+id/mess"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="top"
-                    android:text="@string/message"
-                    android:textAppearance="@style/spouse_s_na"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-                <EditText
-                    android:id="@+id/message"
-                    android:layout_width="251dp"
-                    android:layout_height="86dp"
-                    android:layout_marginTop="9dp"
-                    android:background="@drawable/edittext"
-                    android:gravity="center"
-                    android:hint="@string/enter_your_message"
-                    android:inputType="textMultiLine" />
-
-                <TextView
-                    android:id="@+id/loc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="top"
-                    android:text="@string/location"
-                    android:textAppearance="@style/spouse_s_na"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-                <EditText
-                    android:id="@+id/location"
-                    android:layout_width="251dp"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="9dp"
-                    android:background="@drawable/text_input_bg"
-                    android:gravity="center"
-                    android:hint="@string/enter_location" />
-
-                <TextView
-                    android:id="@+id/org"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="16dp"
-                    android:gravity="top"
-                    android:text="@string/org"
-                    android:textAppearance="@style/spouse_s_na"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/org1"
-                        android:layout_width="74dp"
-                        android:layout_height="53dp"
-                        android:layout_margin="8dp"
-                        app:cardElevation="8dp">
-
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/org2"
-                        android:layout_width="74dp"
-                        android:layout_height="53dp"
-                        android:layout_margin="8dp"
-                        app:cardElevation="8dp">
-
-                    </com.google.android.material.card.MaterialCardView>
-
-                    <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/org3"
-                        android:layout_width="74dp"
-                        android:layout_height="53dp"
-                        android:layout_margin="8dp"
-                        app:cardElevation="8dp">
-
-                    </com.google.android.material.card.MaterialCardView>
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/unistall"
-                    style="@style/report"
-                    android:layout_marginBottom="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/btn_bg"
-                    android:elevation="8dp"
-                    android:gravity="center"
-                    android:text="@string/report" />
-
-            </LinearLayout>
-
-        </ScrollView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

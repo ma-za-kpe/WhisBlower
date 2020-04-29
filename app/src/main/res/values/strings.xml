@@ -2,15 +2,22 @@
     <string name="app_name">Sikimyii</string>
     <string name="text_no_connectivity">No Connection</string>
     <string name="text_connectivity">Back Online</string>
-    <string name="secondary_text">Fill the form and click HELP. \nYour message will be securely sent to an org and the app willself distract..</string>
+    <string name="secondary_text">Change the narrative and break the silence by reporting GBV using this form.</string>
     <string name="supporting_text">OPTIONAL *</string>
-    <string name="supporting_text1">FIND OUT MORE ?</string>
-    <string name="spouse">Spouse\'s name</string>
+    <string name="supporting_text1">EMERGENCY</string>
+    <string name="spouse">Spouse\'s number</string>
     <string name="message">Message</string>
     <string name="location">*Location</string>
     <string name="org">Pick an organisation to report to.</string>
     <string name="report">Report</string>
-    <string name="enter_spouses_name">Enter spouses name</string>
+    <string name="enter_spouses_name">Enter spouses number</string>
     <string name="enter_your_message">Enter your message.</string>
     <string name="enter_location">enter location</string>
+
+    <!--  Spinner   -->
+    <string-array name="abusers_array">
+        <item>Select type of Animal</item>
+        <item>Spouse</item>
+        <item>Abuser</item>
+    </string-array>
 </resources>
