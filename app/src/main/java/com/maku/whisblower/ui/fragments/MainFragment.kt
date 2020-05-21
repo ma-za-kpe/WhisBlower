@@ -24,7 +24,7 @@ import com.maku.whisblower.utils.showToast
 import timber.log.Timber
 
 
-class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
+class MainFragment : Fragment() {
 
     val mContext: Context =
         WhisBlower.applicationContext()
@@ -48,20 +48,6 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
         //unistall app from the users phone
         mViewBinding.unistall?.setOnClickListener { view ->
             unistallAppFromPhone()
-        }
-
-        //spinner
-        mViewBinding.spinner?.onItemSelectedListener = this
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.abusers_array,
-            android.R.layout.simple_spinner_item
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-          mViewBinding.spinner?.adapter = adapter
         }
 
         //hightlihging
@@ -88,15 +74,15 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
 //        mViewBinding.more.text = spannableM
 
         //locatioon asterics
-        val location = resources.getString(R.string.location);
-
-        val spannableL = SpannableString(location);
-        spannableL.setSpan(
-            ForegroundColorSpan(resources.getColor(R.color.icons_pink)),
-            0, 1,
-            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        );
-        mViewBinding.loc?.text = spannableL
+//        val location = resources.getString(R.string.location);
+//
+//        val spannableL = SpannableString(location);
+//        spannableL.setSpan(
+//            ForegroundColorSpan(resources.getColor(R.color.icons_pink)),
+//            0, 1,
+//            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+//        );
+//        mViewBinding.loc?.text = spannableL
 
         return mViewBinding.root
     }
@@ -127,43 +113,6 @@ class MainFragment : Fragment(), AdapterView.OnItemSelectedListener {
             } else {
                 //Displaying another toast if permission is not granted
                 activity?.showToast("Oops you just denied the permission")
-            }
-        }
-    }
-
-    override fun onNothingSelected(p0: AdapterView<*>?) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onItemSelected(parent: AdapterView<*>, view: View, pos: Int, id: Long) {
-        Timber.d("something has been selected ")
-        val index: Int = parent.selectedItemPosition
-        Toast.makeText(
-            requireContext(),
-            "You select " + (index).toString() + " id " + pos,
-            Toast.LENGTH_LONG
-        ).show()
-        when (pos) {
-            0 -> {
-                //TODO : ADD SOME ERROR or something
-
-            }
-            1 -> {
-                Toast.makeText(
-                    requireContext(),
-                    "You select spouse",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            2 -> {
-                Toast.makeText(
-                    requireContext(),
-                    "You select abuser",
-                    Toast.LENGTH_LONG
-                ).show()
-            }
-            else -> {
-                Timber.d("Did not select anything")
             }
         }
     }

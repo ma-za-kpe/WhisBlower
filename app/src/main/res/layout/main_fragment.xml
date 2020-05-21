@@ -64,12 +64,12 @@
                         android:padding="8dp">
 
                         <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/secondary_text"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/secondary_text"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:textColor="?android:attr/textColorSecondary" />
 
                         <TextView
                             android:id="@+id/optional"
@@ -112,12 +112,6 @@
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
-
-                <androidx.appcompat.widget.AppCompatSpinner
-                    android:background="@drawable/text_input_bg"
-                    android:id="@+id/spinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
 
                 <TextView
                     android:id="@+id/spouse"
