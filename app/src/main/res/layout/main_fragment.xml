@@ -114,29 +114,73 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <TextView
-                    android:id="@+id/spouse"
+                    android:id="@+id/pick"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:gravity="top"
-                    android:text="@string/spouse"
+                    android:text="Pick attacker type"
                     android:textAppearance="@style/spouse_s_na"
                     android:textColor="?android:attr/textColorSecondary" />
 
-                <EditText
-                    android:id="@+id/spouseinput"
-                    android:layout_width="251dp"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="9dp"
-                    android:background="@drawable/text_input_bg"
-                    android:gravity="center"
-                    android:hint="@string/enter_spouses_name" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:id="@+id/pickabuser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/spouseBtn"
+                        android:text="Spouse"
+                        app:cardElevation="8dp"
+                        android:textAppearance="@style/spouse_s_na"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/abuserBtn"
+                        app:cardElevation="8dp"
+                        android:text="Attacker"
+                        android:textAppearance="@style/spouse_s_na"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/spouse_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/spouse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="top"
+                        android:text="@string/spouse"
+                        android:textAppearance="@style/spouse_s_na"
+                        android:textColor="?android:attr/textColorSecondary" />
+
+                    <EditText
+                        android:id="@+id/spouseinput"
+                        android:layout_width="251dp"
+                        android:layout_height="38dp"
+                        android:layout_marginTop="9dp"
+                        android:background="@drawable/text_input_bg"
+                        android:gravity="center"
+                        android:hint="@string/enter_spouses_name" />
+
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/mess"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="8dp"
                     android:gravity="top"
                     android:text="@string/message"
                     android:textAppearance="@style/spouse_s_na"

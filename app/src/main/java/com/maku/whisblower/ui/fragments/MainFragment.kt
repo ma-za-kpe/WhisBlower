@@ -45,6 +45,17 @@ class MainFragment : Fragment() {
         mViewBinding = DataBindingUtil.inflate(
             inflater, R.layout.main_fragment, container, false)
 
+        mViewBinding.spouseNumber?.visibility = View.GONE
+
+        mViewBinding.spouseBtn?.setOnClickListener { view ->
+            mViewBinding.spouseNumber?.visibility = View.VISIBLE
+            mViewBinding.abuserBtn?.visibility = View.GONE
+        }
+
+        mViewBinding.abuserBtn?.setOnClickListener { view ->
+            mViewBinding.spouseBtn?.visibility = View.GONE
+        }
+
         //unistall app from the users phone
         mViewBinding.unistall?.setOnClickListener { view ->
             unistallAppFromPhone()
