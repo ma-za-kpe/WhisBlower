@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="MainViewModel"
+            type="com.maku.whisblower.ui.fragments.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

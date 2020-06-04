@@ -79,10 +79,46 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/pick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:text="Pick attacker type"
+                    android:textAppearance="@style/spouse_s_na"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:id="@+id/pickabuser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/spouseBtn"
+                        android:text="Spouse"
+                        app:cardElevation="8dp"
+                        android:textAppearance="@style/spouse_s_na"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/abuserBtn"
+                        app:cardElevation="8dp"
+                        android:text="Attacker"
+                        android:textAppearance="@style/spouse_s_na"
+                        android:textColor="?android:attr/textColorSecondary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"/>
+
+                </LinearLayout>
+
+                <TextView
                     android:id="@+id/spouse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
                     android:gravity="top"
                     android:text="@string/spouse"
                     android:textAppearance="@style/spouse_s_na"
