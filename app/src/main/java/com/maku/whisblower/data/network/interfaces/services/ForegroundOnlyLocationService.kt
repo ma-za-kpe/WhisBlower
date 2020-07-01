@@ -1,4 +1,4 @@
-package com.maku.whisblower.services
+package com.maku.whisblower.data.network.interfaces.services
 
 import android.app.*
 import android.content.Context

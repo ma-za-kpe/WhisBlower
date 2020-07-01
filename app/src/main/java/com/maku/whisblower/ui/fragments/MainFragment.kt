@@ -36,7 +36,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.maku.whisblower.R
 import com.maku.whisblower.WhisBlower
 import com.maku.whisblower.databinding.MainFragmentBinding
-import com.maku.whisblower.services.ForegroundOnlyLocationService
+import com.maku.whisblower.data.network.interfaces.services.ForegroundOnlyLocationService
 import com.maku.whisblower.ui.ScopedFragment
 import com.maku.whisblower.utils.SharedPreferenceUtil
 import com.maku.whisblower.utils.showToast
