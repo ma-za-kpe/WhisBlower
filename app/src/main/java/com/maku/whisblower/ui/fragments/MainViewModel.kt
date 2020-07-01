@@ -1,11 +1,8 @@
 package com.maku.whisblower.ui.fragments
 
 import android.view.View
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.maku.whisblower.data.db.entity.VictimRequest
-import com.maku.whisblower.data.repository.VictimRepository
 
 class MainViewModel : ViewModel() {
 
