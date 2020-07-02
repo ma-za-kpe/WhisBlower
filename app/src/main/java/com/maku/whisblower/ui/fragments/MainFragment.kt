@@ -112,16 +112,28 @@ class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChan
 //            getDataFromUiSpouse(mViewBinding.spouseinput.text)
         }
 
-        /**
-         * when the attacker button is clicked, get form data
-         * */
         mViewBinding.abuserBtn?.setOnClickListener { view ->
             mViewBinding.spouseBtn?.visibility = View.GONE
-            getDataFromUiAttacker()
+//            getDataFromUiAttacker()
         }
 
-        //unistall app from the users phone
-        mViewBinding.unistall?.setOnClickListener { view ->
+//        /**
+//         * when the attacker button is clicked, get form data
+//         * */
+//        mViewBinding.abuserBtn?.setOnClickListener { view ->
+//            mViewBinding.spouseBtn?.visibility = View.GONE
+//            getDataFromUiAttacker()
+//        }
+
+
+        /**
+         * send to server and unistall app from the users phone
+         * */
+        mViewBinding.unistall.setOnClickListener { view ->
+            //send to server
+            launch {
+                viewModel.onClick()
+            }
             unistallAppFromPhone()
         }
 
@@ -167,24 +179,28 @@ class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChan
     }
 
     /**
+     * send data to server onclick
+     * */
+
+    /**
      * get form attacker data, and launch from a couroutine scope
      * */
-    private fun getDataFromUiAttacker()  = launch {
-        viewModel.getFormData()?.observe(viewLifecycleOwner, Observer(){ victim ->
-            //check if message is empty
-            if (TextUtils.isEmpty(Objects.requireNonNull(victim).message)) {
-                mViewBinding.message.error = "Enter a message";
-                mViewBinding.message.requestFocus();
-            } else {
-//                viewModel.victimData(VictimRequest(victim.attacterType, victim.spouseNumber, victim.message, victim.organisation))?.observe(viewLifecycleOwner, Observer {
+//    private fun getDataFromUiAttacker()  = launch {
+//        viewModel.getFormData()?.observe(viewLifecycleOwner, Observer(){ victim ->
+//            //check if message is empty
+//            if (TextUtils.isEmpty(Objects.requireNonNull(victim).message)) {
+//                mViewBinding.message.error = "Enter a message";
+//                mViewBinding.message.requestFocus();
+//            } else {
+////                viewModel.victimData(VictimRequest(victim.attacterType, victim.spouseNumber, victim.message, victim.organisation))?.observe(viewLifecycleOwner, Observer {
+////
+////                })
+////                mViewBinding.message.setText(victim.message)
 //
-//                })
-//                mViewBinding.message.setText(victim.message)
-
-                // TODO: ADD LOGIC TO GET ORGANISATION NAME HERE, DONT FOROGET TO PUT THE ORGANISATIONS IN AN ARRAYLISY FiRST.
-            }
-        })
-    }
+//                // TODO: ADD LOGIC TO GET ORGANISATION NAME HERE, DONT FOROGET TO PUT THE ORGANISATIONS IN AN ARRAYLISY FiRST.
+//            }
+//        })
+//    }
 
 //    /**
 //     * get spouse form data, and launch from a couroutine scope

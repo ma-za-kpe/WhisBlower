@@ -1,8 +1,9 @@
 package com.maku.whisblower.ui.fragments
 
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.maku.whisblower.data.db.entity.VictimeRequest
+import com.maku.whisblower.data.repository.VictimRepository
 
 class MainViewModel : ViewModel() {
 
@@ -10,24 +11,26 @@ class MainViewModel : ViewModel() {
     var spouseNumber = MutableLiveData<String>()
     var message = MutableLiveData<String>()
     var organisation = MutableLiveData<String>()
+    var location = MutableLiveData<String>()
 
-    private var userMutableLiveData: MutableLiveData<VictimRequest>? = null
+    private var userMutableLiveData: MutableLiveData<VictimeRequest>? = null
 
-    fun getFormData(): MutableLiveData<VictimRequest>? {
+    fun getFormData(): MutableLiveData<VictimeRequest>? {
         if (userMutableLiveData == null) {
-            userMutableLiveData = MutableLiveData<VictimRequest>()
+            userMutableLiveData = MutableLiveData<VictimeRequest>()
         }
         return userMutableLiveData
     }
 
-    fun onClick(view: View?) {
-//        val sendVictimData = VictimRequest()
+     fun onClick() {
+        val sendVictimData = VictimeRequest("spouse", "homMe", "pleEase help", "ngoX", "+25476967521")
+        VictimRepository().sendUserData(sendVictimData)
 //        userMutableLiveData!!.setValue(sendVictimData)
     }
 
-//    fun victimData(victimRequest: VictimRequest?): LiveData<String?>? {
-//        val victimRepository = VictimRepository()
-//        return victimRepository.loginUser(victimRequest)
-//    }
+   suspend fun victimData(victimRequest: VictimeRequest) {
+        val victimRepository = VictimRepository()
+        return victimRepository.sendUserData(victimRequest)
+    }
 
 }

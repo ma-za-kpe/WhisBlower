@@ -14,6 +14,9 @@
     <string name="enter_your_message">Enter your message.</string>
     <string name="enter_location">enter location</string>
 
+    <string name="SpouseS">Spouse</string>
+    <string name="AbuserA">Abuser</string>
+
     <!--  Spinner   -->
     <string-array name="abusers_array">
         <item>Select type of Animal</item>
