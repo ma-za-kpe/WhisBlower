@@ -1,29 +1,20 @@
 package com.maku.whisblower.ui.fragments
 
 import android.Manifest
-
 import android.content.*
-
 import android.content.pm.PackageManager
-
 import android.location.Location
-
 import android.net.Uri
-
 import android.os.Bundle
 import android.os.IBinder
-
 import android.provider.Settings
-
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.library.BuildConfig
@@ -32,20 +23,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.material.snackbar.Snackbar
-
 import com.maku.whisblower.R
 import com.maku.whisblower.WhisBlower
-import com.maku.whisblower.databinding.MainFragmentBinding
 import com.maku.whisblower.data.network.interfaces.services.ForegroundOnlyLocationService
+import com.maku.whisblower.databinding.MainFragmentBinding
 import com.maku.whisblower.ui.ScopedFragment
 import com.maku.whisblower.utils.SharedPreferenceUtil
 import com.maku.whisblower.utils.showToast
 import com.maku.whisblower.utils.toText
-
 import kotlinx.coroutines.launch
-
 import timber.log.Timber
-
 import java.util.*
 
 class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChangeListener {
@@ -100,32 +87,6 @@ class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChan
         mViewBinding.lifecycleOwner = this
         mViewBinding.mainViewModel = viewModel
 
-        mViewBinding.spouseNumber?.visibility = View.GONE
-
-        /**
-         * when the spouse button is clicked, get form data
-         * */
-        mViewBinding.spouseBtn?.setOnClickListener { view ->
-            mViewBinding.spouseNumber?.visibility = View.VISIBLE
-            mViewBinding.abuserBtn?.visibility = View.GONE
-
-//            getDataFromUiSpouse(mViewBinding.spouseinput.text)
-        }
-
-        mViewBinding.abuserBtn?.setOnClickListener { view ->
-            mViewBinding.spouseBtn?.visibility = View.GONE
-//            getDataFromUiAttacker()
-        }
-
-//        /**
-//         * when the attacker button is clicked, get form data
-//         * */
-//        mViewBinding.abuserBtn?.setOnClickListener { view ->
-//            mViewBinding.spouseBtn?.visibility = View.GONE
-//            getDataFromUiAttacker()
-//        }
-
-
         /**
          * send to server and unistall app from the users phone
          * */
@@ -177,53 +138,6 @@ class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChan
 
         return mViewBinding.root
     }
-
-    /**
-     * send data to server onclick
-     * */
-
-    /**
-     * get form attacker data, and launch from a couroutine scope
-     * */
-//    private fun getDataFromUiAttacker()  = launch {
-//        viewModel.getFormData()?.observe(viewLifecycleOwner, Observer(){ victim ->
-//            //check if message is empty
-//            if (TextUtils.isEmpty(Objects.requireNonNull(victim).message)) {
-//                mViewBinding.message.error = "Enter a message";
-//                mViewBinding.message.requestFocus();
-//            } else {
-////                viewModel.victimData(VictimRequest(victim.attacterType, victim.spouseNumber, victim.message, victim.organisation))?.observe(viewLifecycleOwner, Observer {
-////
-////                })
-////                mViewBinding.message.setText(victim.message)
-//
-//                // TODO: ADD LOGIC TO GET ORGANISATION NAME HERE, DONT FOROGET TO PUT THE ORGANISATIONS IN AN ARRAYLISY FiRST.
-//            }
-//        })
-//    }
-
-//    /**
-//     * get spouse form data, and launch from a couroutine scope
-//     * */
-//    private fun getDataFromUiSpouse(text: Editable) = launch  {
-//        viewModel.getFormData()?.observe(viewLifecycleOwner, Observer { victim ->
-//            if (TextUtils.isEmpty(Objects.requireNonNull(victim).spouseNumber)) {
-//                mViewBinding.spouseinput.error = "Enter a spouse phone number";
-//                mViewBinding.spouseinput.requestFocus();
-//            } else if (TextUtils.isEmpty(Objects.requireNonNull(victim).message)) {
-//                mViewBinding.message.error = "Enter a message";
-//                mViewBinding.message.requestFocus();
-//            } else {
-//                viewModel.victimData(VictimRequest(victim.attacterType, victim.spouseNumber, victim.message, victim.organisation))?.observe(viewLifecycleOwner, Observer {
-//
-//                })
-////                mViewBinding.spouseinput.setText(victim.spouseNumber)
-////                mViewBinding.message.setText(victim.message)
-//
-//                // TODO: ADD LOGIC TO GET ORGANISATION NAME HERE, DONT FROGET TO PUT THE ORGANISATIONS IN AN ARRAYLISY FiRST.
-//            }
-//        } )
-//    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

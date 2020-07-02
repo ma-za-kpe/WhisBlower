@@ -5,15 +5,18 @@
     <string name="secondary_text">Change the narrative and break the silence by reporting GBV using this form.</string>
     <string name="supporting_text">OPTIONAL *</string>
     <string name="supporting_text1">EMERGENCY</string>
-    <string name="spouse">Spouse\'s number</string>
+    <string name="spouse">Spouse\'s or Attacker\'s number</string>
     <string name="message">Message</string>
     <string name="location">*Location</string>
     <string name="org">Pick an organisation to report to.</string>
     <string name="report">Report</string>
-    <string name="enter_spouses_name">Enter spouses number</string>
+    <string name="enter_spouses_name">Enter phone number</string>
     <string name="enter_your_message">Enter your message.</string>
     <string name="enter_location">enter location</string>
 
+    <string name="Police">Police</string>
+    <string name="NgoOne">NgoOne</string>
+    <string name="NgoTwo">NgoTwo</string>
     <string name="SpouseS">Spouse</string>
     <string name="AbuserA">Abuser</string>
 
