@@ -10,19 +10,17 @@ import android.os.IBinder
 import android.provider.Settings
 import android.text.Spannable
 import android.text.SpannableString
-import android.text.TextUtils
 import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.library.BuildConfig
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.material.snackbar.Snackbar
+import com.maku.whisblower.BuildConfig
 import com.maku.whisblower.R
 import com.maku.whisblower.WhisBlower
 import com.maku.whisblower.data.network.interfaces.services.ForegroundOnlyLocationService
@@ -33,7 +31,6 @@ import com.maku.whisblower.utils.showToast
 import com.maku.whisblower.utils.toText
 import kotlinx.coroutines.launch
 import timber.log.Timber
-import java.util.*
 
 class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChangeListener {
     private var foregroundOnlyLocationServiceBound = false
@@ -118,22 +115,30 @@ class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChan
 //        foregroundOnlyLocationButton = findViewById(R.id.foreground_only_location_button)
 //        outputTextView = findViewById(R.id.output_text_view)
 
-        mViewBinding.help?.setOnClickListener {
-            val enabled = sharedPreferences.getBoolean(
-                SharedPreferenceUtil.KEY_FOREGROUND_ENABLED, false)
+        mViewBinding.help?.isChecked = false
+        mViewBinding.help?.setOnCheckedChangeListener { _, isChecked ->
 
-            if (enabled) {
-                foregroundOnlyLocationService?.unsubscribeToLocationUpdates()
-            } else {
+            if (isChecked){
+                mViewBinding.locationProgress?.visibility = View.VISIBLE
+                val enabled = sharedPreferences.getBoolean(
+                    SharedPreferenceUtil.KEY_FOREGROUND_ENABLED, false)
 
-                // TODO: Step 1.0, Review Permissions: Checks and requests if needed.
-                if (foregroundPermissionApproved()) {
-                    foregroundOnlyLocationService?.subscribeToLocationUpdates()
-                        ?: Timber.d("Service Not Bound")
+                if (enabled) {
+                    foregroundOnlyLocationService?.unsubscribeToLocationUpdates()
                 } else {
-                    requestForegroundPermissions()
+
+                    // TODO: Step 1.0, Review Permissions: Checks and requests if needed.
+                    if (foregroundPermissionApproved()) {
+                        foregroundOnlyLocationService?.subscribeToLocationUpdates()
+                            ?: Timber.d("Service Not Bound")
+                    } else {
+                        requestForegroundPermissions()
+                    }
                 }
+            } else {
+                mViewBinding.locationProgress?.visibility = View.GONE
             }
+
         }
 
         return mViewBinding.root
@@ -302,13 +307,17 @@ class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChan
 
     private fun updateButtonState(trackingLocation: Boolean) {
         if (trackingLocation) {
-            mViewBinding.help?.text = getString(R.string.stop_location_updates_button_text)
+            mViewBinding.help?.isChecked = true
+            mViewBinding.locationProgress?.visibility = View.VISIBLE
+
         } else {
-            mViewBinding.help?.text = getString(R.string.start_location_updates_button_text)
+            mViewBinding.help?.isChecked = false
+            mViewBinding.locationProgress?.visibility = View.GONE
         }
     }
 
-    private fun logResultsToScreen(output:String) {
+    private fun sendResultsToViewModel(output:String) {
+        viewModel.getLocation(output)
         val outputWithPreviousLogs = "$output"
        Timber.d(" location cordinates " + outputWithPreviousLogs)
     }
@@ -324,7 +333,8 @@ class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChan
             )
 
             if (location != null) {
-                logResultsToScreen("Foreground location: ${location.toText()}")
+                mViewBinding.locationProgress?.visibility = View.GONE
+                sendResultsToViewModel(location.toText())
             }
         }
     }

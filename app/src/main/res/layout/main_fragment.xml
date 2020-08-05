@@ -98,17 +98,23 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                             android:textColor="?android:attr/textColorSecondary"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:layout_marginLeft="24dp"
+                        <com.google.android.material.switchmaterial.SwitchMaterial
                             android:id="@+id/help"
-                            android:background="@drawable/btn_bg"
-                            android:text="911"
-                            android:gravity="center"
-                            style="@style/report"
-                            android:elevation="8dp"
                             android:layout_gravity="center"
+                            android:layout_marginLeft="24dp"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content"
+                            android:checked="false"/>
+
+                        <androidx.core.widget.ContentLoadingProgressBar
+                            android:id="@+id/location_progress"
+                            style="?android:attr/progressBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:visibility="visible"
+                            />
+
                     </LinearLayout>
 
                 </LinearLayout>

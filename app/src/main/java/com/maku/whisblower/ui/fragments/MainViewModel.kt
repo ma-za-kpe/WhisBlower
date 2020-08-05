@@ -1,11 +1,10 @@
 package com.maku.whisblower.ui.fragments
 
-import android.view.View
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.maku.whisblower.data.db.entity.VictimeRequest
 import com.maku.whisblower.data.repository.VictimRepository
-import com.maku.whisblower.utils.showError
+import com.shreyaspatil.MaterialDialog.MaterialDialog
 import timber.log.Timber
 
 class MainViewModel : ViewModel() {
@@ -13,6 +12,7 @@ class MainViewModel : ViewModel() {
     //hold spouse or attacker number
     var person: String = ""
     var org: String = ""
+    var loc: String = ""
 
     //organisation text
     var popo = MutableLiveData<String>()
@@ -53,6 +53,11 @@ class MainViewModel : ViewModel() {
         Timber.d("org " + org)
     }
 
+    fun getLocation(output: String) {
+        Timber.d("location " + output)
+        loc = output
+    }
+
      fun onClick() {
 
          Timber.d("attackerType " + person)
@@ -61,9 +66,16 @@ class MainViewModel : ViewModel() {
          Timber.d("organisation " + org)
          Timber.d("location " + message.value)
 
-         val sendVictimData = VictimeRequest(person, "homMe", message.value.toString(), org, spouseNumber.value.toString())
-         VictimRepository().sendUserData(sendVictimData)
-//        userMutableLiveData!!.setValue(sendVictimData)
+         //check if location is empty
+         if (loc.isEmpty()){
+             val sendVictimData = VictimeRequest(person, "location is empty", message.value.toString(), org, spouseNumber.value.toString())
+             VictimRepository().sendUserData(sendVictimData)
+         } else {
+             val sendVictimData = VictimeRequest(person, loc, message.value.toString(), org, spouseNumber.value.toString())
+             VictimRepository().sendUserData(sendVictimData)
+         }
+
+//         userMutableLiveData!!.value = sendVictimData
     }
 
    suspend fun victimData(victimRequest: VictimeRequest) {

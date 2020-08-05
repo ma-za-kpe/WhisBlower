@@ -8,8 +8,7 @@
     <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>
     <!-- Required for foreground services on P+. -->
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-
-    <!-- TODO: Step 1.0, Review Permissions: Specify permissions you are using. -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <supports-screens

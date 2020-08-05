@@ -43,6 +43,10 @@ import timber.log.Timber
 
 class MainActivity : AppCompatActivity() {
 
+    // add check for devices with Android 10
+    private val runningQOrLater =
+        android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q
+
     //databinding
     private lateinit var mViewBinding: ActivityMainBinding
 
@@ -87,6 +91,16 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    // Add check for background permission.
+    val backgroundPermissionApproved =
+        if (runningQOrLater) {
+            ActivityCompat.checkSelfPermission(
+                this, Manifest.permission.ACCESS_BACKGROUND_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        } else {
+            true
+        }
+
     /**
      * Observe network changes i.e. Internet Connectivity
      */
@@ -124,7 +138,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Check for any updates
+     * Check for any updates [IN-APP UPDATES]
      */
     private fun checkUpdate() {
 
@@ -316,8 +330,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
     /**
      * Handle backpressed
      */
@@ -336,6 +348,9 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
+    /**
+     * Companion object
+     */
     companion object {
         const val ANIMATION_DURATION = 1000.toLong()
         const val UNINSTALL_REQUEST_CODE = 1;
