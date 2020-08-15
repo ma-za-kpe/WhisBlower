@@ -1,4 +1,4 @@
-package com.maku.whisblower.ui.activities
+package com.maku.whisblower.ui.activity
 
 import android.Manifest
 import android.animation.Animator
@@ -22,8 +22,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
@@ -71,19 +75,13 @@ class MainActivity : AppCompatActivity() {
             R.layout.activity_main
         )
 
-        mViewBinding.setLifecycleOwner(this);
+        mViewBinding.lifecycleOwner = this;
 
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration: AppBarConfiguration = AppBarConfiguration.Builder(
-                R.id.mainFragment
-            )
-            .build()
-        val navController: NavController =
-            Navigation.findNavController(this, R.id.nav_host_fragment)
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
+        val navController: NavController = Navigation.findNavController(this, R.id.nav_host_fragment)
+
+        val appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.mainFragment, R.id.mapsFragment))
+        setupActionBarWithNavController(navController, appBarConfiguration)
 
         //handle newtwork changes
         handleNetworkChanges()

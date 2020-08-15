@@ -1,4 +1,4 @@
-package com.maku.whisblower.ui.fragments
+package com.maku.whisblower.ui.fragments.main
 
 import android.Manifest
 import android.content.*
@@ -92,6 +92,7 @@ class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChan
             launch {
                 viewModel.onClick()
             }
+            // TODO : ACTIVATE THIS METHOD WHEN YOU WANT A USER TO UNISTALL THYE APP IMMEDIATELY
             unistallAppFromPhone()
         }
 
@@ -120,6 +121,7 @@ class MainFragment : ScopedFragment() , SharedPreferences.OnSharedPreferenceChan
 
             if (isChecked){
                 mViewBinding.locationProgress?.visibility = View.VISIBLE
+
                 val enabled = sharedPreferences.getBoolean(
                     SharedPreferenceUtil.KEY_FOREGROUND_ENABLED, false)
 

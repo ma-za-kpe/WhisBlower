@@ -8,6 +8,11 @@
     <fragment
         tools:layout="@layout/main_fragment"
         android:id="@+id/mainFragment"
-        android:name="com.maku.whisblower.ui.fragments.MainFragment"
-        android:label="Sikimyii" />
+        android:name="com.maku.whisblower.ui.fragments.main.MainFragment"
+        android:label="WhisBlower" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.maku.whisblower.ui.fragments.map.MapsFragment"
+        android:label="Victim Map"
+        tools:layout="@layout/fragment_maps" />
 </navigation>

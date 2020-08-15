@@ -6,13 +6,13 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 <data>
     <variable
         name="MainViewModel"
-        type="com.maku.whisblower.ui.fragments.MainViewModel" />
+        type="com.maku.whisblower.ui.fragments.main.MainViewModel" />
 </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.MainFragment">
+    tools:context=".ui.fragments.main.MainFragment">
 
     <LinearLayout
         android:id="@+id/networkStatusLayout"

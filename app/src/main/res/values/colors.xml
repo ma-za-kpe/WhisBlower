@@ -19,4 +19,7 @@
     <color name="colorStatusNotConnected">#D32F2F</color>
     <color name="icons_pink">#F400DC</color>
 
+    <color name="btmnav">#000000</color>
+
+
 </resources>

@@ -13,6 +13,8 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">@bool/windowLightStatusBar
         </item>
 
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
+
         <item name="actionBarStyle">@style/Widget.MaterialComponents.ActionBar.Primary</item>
 
         <!-- Material Dialog Customizations -->
@@ -30,13 +32,14 @@
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 
-    <style name="PostTitleText">
-        <item name="android:layout_marginStart">@dimen/dimen_16</item>
-        <item name="android:layout_marginTop">@dimen/dimen_16</item>
-        <item name="android:layout_marginEnd">@dimen/dimen_8</item>
-        <item name="android:maxLines">2</item>
-        <item name="android:textColor">@color/textColor</item>
-        <item name="android:textSize">16sp</item>
+    <style name="AppTheme.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.BottomNavigationView</item>
+    </style>
+
+    <style name="ThemeOverlay.App.BottomNavigationView" parent="AppTheme">
+        <item name="colorPrimary">@color/bulbColor</item>
+        <item name="colorOnPrimary">@color/bulbColor</item>
+        <item name="itemTextColor">@color/btmnav</item>
     </style>
 
     <style name="PostAuthorText">

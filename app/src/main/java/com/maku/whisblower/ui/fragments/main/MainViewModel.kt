@@ -1,10 +1,9 @@
-package com.maku.whisblower.ui.fragments
+package com.maku.whisblower.ui.fragments.main
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.maku.whisblower.data.db.entity.VictimeRequest
 import com.maku.whisblower.data.repository.VictimRepository
-import com.shreyaspatil.MaterialDialog.MaterialDialog
 import timber.log.Timber
 
 class MainViewModel : ViewModel() {

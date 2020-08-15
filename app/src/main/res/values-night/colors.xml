@@ -15,4 +15,6 @@
     <color name="imageBackgroundTint">#E91E63</color>
     <color name="icons_pink">#F400DC</color>
 
+    <color name="btmnav">#F400DC</color>
+
 </resources>

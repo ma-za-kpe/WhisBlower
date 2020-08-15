@@ -15,7 +15,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager
 
 import com.google.android.gms.location.*
 
-import com.maku.whisblower.ui.activities.MainActivity
+import com.maku.whisblower.ui.activity.MainActivity
 import com.maku.whisblower.utils.SharedPreferenceUtil
 import com.maku.whisblower.utils.toText
 import com.maku.whisblower.R
