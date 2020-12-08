@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_maps" />
     <fragment
         android:id="@+id/emergencyFragment"
-        android:name="com.maku.whisblower.ui.fragments.EmergencyFragment"
-        android:label="fragment_emergency"
+        android:name="com.maku.whisblower.ui.fragments.emergency.EmergencyFragment"
+        android:label="Emergency"
         tools:layout="@layout/fragment_emergency" />
 </navigation>
