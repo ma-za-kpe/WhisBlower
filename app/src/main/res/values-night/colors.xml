@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#303030</color>
+    <color name="colorPrimary">#5A5A5A</color>
+    <color name="colorPrimaryDark">@android:color/black</color>
+    <color name="colorAccent">#F400DC</color>
+
     <color name="windowBackground">#212121</color>
     <color name="statusBarColor">#000000</color>
 
@@ -9,12 +12,13 @@
     <color name="share">@android:color/white</color>
     <color name="call">@android:color/white</color>
 
-
     <color name="post_background">#0DFFFFFF</color>
-
     <color name="imageBackgroundTint">#E91E63</color>
     <color name="icons_pink">#F400DC</color>
 
-    <color name="btmnav">#F400DC</color>
+    <color name="colorStatusConnected">#43A047</color>
+    <color name="colorStatusNotConnected">#D32F2F</color>
+
+    <color name="btmnav">#FFFFFF</color>
 
 </resources>

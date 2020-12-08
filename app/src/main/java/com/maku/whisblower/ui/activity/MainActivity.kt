@@ -75,13 +75,15 @@ class MainActivity : AppCompatActivity() {
             R.layout.activity_main
         )
 
-        mViewBinding.lifecycleOwner = this;
+        mViewBinding.lifecycleOwner = this
 
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
         val navController: NavController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
         val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.mainFragment, R.id.mapsFragment))
+            R.id.mainFragment, R.id.mapsFragment, R.id.emergencyFragment))
         setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
 
         //handle newtwork changes
         handleNetworkChanges()

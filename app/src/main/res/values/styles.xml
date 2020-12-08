@@ -13,7 +13,7 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">@bool/windowLightStatusBar
         </item>
 
-        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
+<!--        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>-->
 
         <item name="actionBarStyle">@style/Widget.MaterialComponents.ActionBar.Primary</item>
 
@@ -39,6 +39,8 @@
     <style name="ThemeOverlay.App.BottomNavigationView" parent="AppTheme">
         <item name="colorPrimary">@color/bulbColor</item>
         <item name="colorOnPrimary">@color/bulbColor</item>
+        <item name="itemIconTint">@color/bulbColor</item>
+        <item name="itemRippleColor">@color/bulbColor</item>
         <item name="itemTextColor">@color/btmnav</item>
     </style>
 

@@ -2,24 +2,24 @@
 <resources>
 
     <color name="colorPrimary">@android:color/white</color>
-    <color name="colorPrimaryDark">@android:color/black</color>
-    <color name="windowBackground">#F3F3F3</color>
+    <color name="colorPrimaryDark">#A10097</color>
     <color name="colorAccent">#F400DC</color>
+
+    <color name="windowBackground">#F3F3F3</color>
     <color name="statusBarColor">#A10097</color>
 
     <color name="textColor">@android:color/black</color>
     <color name="bulbColor">#A10097</color>
     <color name="share">#A10097</color>
     <color name="call">#A10097</color>
-    <color name="post_background">@android:color/white</color>
 
+    <color name="post_background">@android:color/white</color>
     <color name="imageBackgroundTint">#C3C3C3</color>
+    <color name="icons_pink">#F400DC</color>
 
     <color name="colorStatusConnected">#43A047</color>
     <color name="colorStatusNotConnected">#D32F2F</color>
-    <color name="icons_pink">#F400DC</color>
 
-    <color name="btmnav">#000000</color>
-
+    <color name="btmnav">#F400DC</color>
 
 </resources>

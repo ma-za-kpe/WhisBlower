@@ -46,8 +46,9 @@
     <string name="no_location_text">No current location</string>
     <string name="share_location">SHARE LOCATION</string>
     <string name="title_activity_major">MajorActivity</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Form</string>
     <string name="title_map">Map</string>
+    <string name="title_emergency">Emergency</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_bottom">MainActivity</string>
     <string name="title_activity_v">MainActivity</string>
@@ -59,4 +60,7 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_delete">MainActivity</string>
 </resources>
