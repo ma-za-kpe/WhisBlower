@@ -9,55 +9,24 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
         type="com.maku.whisblower.ui.fragments.main.MainViewModel" />
 </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragments.main.MainFragment">
-
-    <LinearLayout
-        android:id="@+id/networkStatusLayout"
-        style="@style/StatusView"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorStatusNotConnected"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        tools:context=".ui.fragments.main.MainFragment">
 
-        <TextView
-            android:id="@+id/textViewNetworkStatus"
-            style="@style/StatusTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="@string/text_no_connectivity" />
-    </LinearLayout>
-
-    <ScrollView
-        android:paddingRight="8dp"
-        android:paddingLeft="8dp"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/card"
-            app:layout_constraintVertical_bias="0.0"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_marginTop="24dp"
-                android:layout_marginBottom="8dp"
                 android:id="@+id/card"
-                android:layout_width="271dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 app:cardElevation="8dp"
-                android:layout_height="wrap_content">
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -70,52 +39,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:text="@string/secondary_text"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary" />
-
-                    <TextView
-                        android:id="@+id/optional"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:text="@string/supporting_text"
-                        android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_marginTop="16dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:gravity="center"
-                            android:id="@+id/more"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/supporting_text1"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary"
-                            android:textStyle="bold" />
-
-                        <com.google.android.material.switchmaterial.SwitchMaterial
-                            android:id="@+id/help"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="24dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="false"/>
-
-                        <androidx.core.widget.ContentLoadingProgressBar
-                            android:id="@+id/location_progress"
-                            style="?android:attr/progressBarStyleSmall"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:visibility="visible"
-                            />
-
-                    </LinearLayout>
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        android:textColor="@color/bulbColor" />
 
                 </LinearLayout>
 
@@ -123,192 +48,201 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 
             <TextView
                 android:id="@+id/pick"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:gravity="top"
                 android:text="Pick attacker type"
-                android:textAppearance="@style/spouse_s_na"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/card" />
 
-            <LinearLayout
-                android:orientation="horizontal"
-                android:id="@+id/pickabuser"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                app:layout_constraintStart_toStartOf="@+id/guideline7"
+                app:layout_constraintTop_toBottomOf="@+id/pick">
 
                 <com.google.android.material.button.MaterialButton
-                    android:hint="@string/SpouseS"
                     android:id="@+id/spouseBtn"
-                    android:text="@string/SpouseS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:layout_marginEnd="187dp"
+                    android:layout_marginBottom="8dp"
+                    android:hint="@string/SpouseS"
                     android:onClick="@{() -> MainViewModel.onClickSpouse()}"
-                    app:cardElevation="8dp"
+                    android:text="@string/SpouseS"
                     android:textAppearance="@style/spouse_s_na"
                     android:textColor="?android:attr/textColorSecondary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"/>
+                    app:cardElevation="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/spouse"
+                    app:layout_constraintEnd_toStartOf="@+id/abuserBtn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/abuserBtn"
-                    android:hint="@string/AbuserA"
-                    app:cardElevation="8dp"
-                    android:text="@string/AbuserA"
-                    android:onClick="@{() -> MainViewModel.onClickAttacker()}"                    android:textAppearance="@style/spouse_s_na"
-                    android:textColor="?android:attr/textColorSecondary"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/spouse_number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                    android:layout_margin="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:hint="@string/AbuserA"
+                    android:onClick="@{() -> MainViewModel.onClickAttacker()}"
+                    android:text="@string/AbuserA"
+                    android:textAppearance="@style/spouse_s_na"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:cardElevation="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/spouse"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/spouseBtn"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/bulbColor" />
 
                 <TextView
                     android:id="@+id/spouse"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
                     android:gravity="top"
                     android:text="@string/spouse"
-                    android:textAppearance="@style/spouse_s_na"
-                    android:textColor="?android:attr/textColorSecondary" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:layout_constraintBottom_toTopOf="@+id/spouseinput"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spouseBtn" />
 
-                <EditText
-                    android:inputType="phone"
+                <TextView
+                    android:id="@+id/mess"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="top"
+                    android:text="@string/message"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spouseinput" />
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/spouseinput"
-                    android:layout_width="251dp"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="9dp"
-                    android:background="@drawable/text_input_bg"
-                    android:gravity="center"
-                    android:text="@={MainViewModel.spouseNumber}"
-                    android:hint="@string/enter_spouses_name" />
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="0778345672"
+                    app:endIconMode="clear_text"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/spouse"
+                    app:startIconDrawable="@drawable/ic_phone">
 
-            </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="phone"
+                        android:text="@={MainViewModel.spouseNumber}" />
 
-            <TextView
-                android:id="@+id/mess"
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/message"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_your_message"
+                    app:endIconMode="clear_text"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/mess"
+                    app:startIconDrawable="@drawable/ic_message">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="text"
+                        android:text="@={MainViewModel.spouseNumber}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/org"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="top"
+                    android:text="@string/org"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/message" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recorg"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/unistall"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/org" />
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/unistall"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="send"
+                    android:textColor="@color/bulbColor"
+                    app:cornerRadius="32dp"
+                    app:iconTint="@null"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recorg"
+                    app:strokeColor="@color/bulbColor"
+                    tools:text="send" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="top"
-                android:text="@string/message"
-                android:textAppearance="@style/spouse_s_na"
-                android:textColor="?android:attr/textColorSecondary" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
 
-            <EditText
-                android:id="@+id/message"
-                android:layout_width="251dp"
-                android:layout_height="86dp"
-                android:layout_marginTop="9dp"
-                android:background="@drawable/edittext"
-                android:gravity="center"
-                android:hint="@string/enter_your_message"
-                android:text="@={MainViewModel.message}"
-                android:inputType="textMultiLine" />
-
-            <TextView
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/org"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="top"
-                android:text="@string/org"
-                android:textAppearance="@style/spouse_s_na"
-                android:textColor="?android:attr/textColorSecondary" />
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:text="@string/Police"
-                    android:onClick="@{() -> MainViewModel.onClickPolice()}"
-                    android:id="@+id/org1"
-                    app:cardElevation="8dp"
-                    android:layout_width="74dp"
-                    android:layout_height="53dp"
-                    android:layout_margin="8dp">
-
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:id="@+id/policeText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:gravity="top"
-                        android:text="@string/Police"
-                        android:textAppearance="@style/spouse_s_na"
-                        android:textColor="?android:attr/textColorSecondary" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/org2"
-                    app:cardElevation="8dp"
-                    android:layout_width="74dp"
-                    android:layout_height="53dp"
-                    android:layout_margin="8dp">
-
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:id="@+id/ngo1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:gravity="top"
-                        android:text="@string/NgoOne"
-                        android:textAppearance="@style/spouse_s_na"
-                        android:textColor="?android:attr/textColorSecondary" />
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/org3"
-                    app:cardElevation="8dp"
-                    android:layout_width="74dp"
-                    android:layout_height="53dp"
-                    android:layout_margin="8dp">
-
-                    <TextView
-                        android:layout_gravity="center_horizontal"
-                        android:id="@+id/ngo2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:gravity="top"
-                        android:text="@string/NgoTwo"
-                        android:textAppearance="@style/spouse_s_na"
-                        android:textColor="?android:attr/textColorSecondary" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
 
 
-                </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-            <TextView
-                android:id="@+id/unistall"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/btn_bg"
-                android:text="@string/report"
-                android:onClick="@{() -> MainViewModel.onClick()}"
-                android:gravity="center"
-                style="@style/report"
-                android:elevation="8dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-
-
-        </LinearLayout>
-
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 
