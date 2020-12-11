@@ -48,7 +48,7 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:resizeableActivity="true"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

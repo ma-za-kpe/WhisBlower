@@ -1,34 +1,29 @@
-package com.maku.whisblower.ui.fragments.emergency
+package com.maku.whisblower.ui.fragments.OtherVictims
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.maku.whisblower.R
 import com.maku.whisblower.databinding.FragmentEmergencyBinding
+import com.maku.whisblower.databinding.FragmentOtherVictimsBinding
+import com.maku.whisblower.ui.fragments.emergency.EmergencyAdapter
 
+class OtherVictimsFragment : Fragment() {
 
-class EmergencyFragment : Fragment() {
-
-    private lateinit var binding: FragmentEmergencyBinding
+    private lateinit var binding: FragmentOtherVictimsBinding
     private lateinit var source: ArrayList<String>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_emergency, container, false
+            inflater, R.layout.fragment_other_victims, container, false
         )
         binding.lifecycleOwner = requireActivity()
         return binding.root
@@ -43,34 +38,16 @@ class EmergencyFragment : Fragment() {
     }
 
     private fun initObservers() {
-       fetchOtherVictims()
+        fetchOtherVictims()
     }
 
     private fun fetchOtherVictims() {
         // Adding items to RecyclerView.
         AddItemsToRecyclerViewArrayList()
-            with(binding.orgrec) {
-                adapter = OrgAdapter(source)
-            }
-            with(binding.others) {
-                adapter = EmergencyAdapter(source) { item ->
-                    goToOtherFragment(item)
-                }
-            }
+        with(binding.othersRec) {
+            adapter = OtherAdapter(source)
 
-    }
-
-    private fun goToOtherFragment(item: Any) {
-//        findNavController().navigate(R.id.otherVictimsFragment)
-        //pass the 'context' here
-        val alertDialog = AlertDialog.Builder(requireContext())
-        alertDialog.setTitle("Rover Name: $item")
-        alertDialog.setPositiveButton("Close") {
-                dialog, which -> dialog.cancel()
         }
-
-        val dialog = alertDialog.create()
-        dialog.show()
     }
 
     private fun initViewModels() {
@@ -78,20 +55,11 @@ class EmergencyFragment : Fragment() {
     }
 
     private fun initUiBindings() {
-        val linearLayoutManagerOrg = LinearLayoutManager(
-            activity, LinearLayoutManager.HORIZONTAL,
-            false
-        )
-        binding.orgrec.run {
-            setHasFixedSize(true)
-            layoutManager = linearLayoutManagerOrg
-        }
-
         val linearLayoutManager = LinearLayoutManager(
-            activity, LinearLayoutManager.HORIZONTAL,
+            activity, LinearLayoutManager.VERTICAL,
             false
         )
-            binding.others.run {
+        binding.othersRec.run {
             setHasFixedSize(true)
             layoutManager = linearLayoutManager
         }
@@ -112,10 +80,9 @@ class EmergencyFragment : Fragment() {
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            EmergencyFragment().apply {
+            OtherVictimsFragment().apply {
                 arguments = Bundle().apply {
 
                 }

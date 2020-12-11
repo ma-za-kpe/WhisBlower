@@ -20,6 +20,7 @@
     <color name="colorStatusConnected">#43A047</color>
     <color name="colorStatusNotConnected">#D32F2F</color>
 
-    <color name="btmnav">#F400DC</color>
+    <color name="btmnav">#A10097</color>
+    <color name="grey">#4C4C4C</color>
 
 </resources>

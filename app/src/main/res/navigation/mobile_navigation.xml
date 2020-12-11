@@ -19,5 +19,18 @@
         android:id="@+id/emergencyFragment"
         android:name="com.maku.whisblower.ui.fragments.emergency.EmergencyFragment"
         android:label="Emergency"
-        tools:layout="@layout/fragment_emergency" />
+        tools:layout="@layout/fragment_emergency" >
+        <action
+            android:id="@+id/action_emergencyFragment_to_otherVictimsFragment"
+            app:destination="@id/otherVictimsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otherVictimsFragment"
+        android:name="com.maku.whisblower.ui.fragments.OtherVictims.OtherVictimsFragment"
+        android:label="Other Victims"
+        tools:layout="@layout/fragment_other_victims">
+        <action
+            android:id="@+id/action_otherVictimsFragment_to_emergencyFragment"
+            app:destination="@id/emergencyFragment" />
+    </fragment>
 </navigation>

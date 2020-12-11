@@ -20,5 +20,6 @@
     <color name="colorStatusNotConnected">#D32F2F</color>
 
     <color name="btmnav">#FFFFFF</color>
+    <color name="grey">#EAEAEA</color>
 
 </resources>
