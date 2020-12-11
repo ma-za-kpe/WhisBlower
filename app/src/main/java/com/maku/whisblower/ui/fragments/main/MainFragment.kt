@@ -62,14 +62,14 @@ class MainFragment : Fragment() {
 
         //hightlihging
         //build the spannable String for 50 shillings
-        val optional = resources.getString(R.string.supporting_text);
+        val optional = resources.getString(R.string.supporting_text)
 
-        val spannableO = SpannableString(optional);
+        val spannableO = SpannableString(optional)
         spannableO.setSpan(
             ForegroundColorSpan(resources.getColor(R.color.icons_pink)),
             9, 10,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-        );
+        )
         mViewBinding.optional?.text = spannableO
 
         return mViewBinding.root
@@ -126,9 +126,9 @@ class MainFragment : Fragment() {
 
 
     private fun unistallAppFromPhone() {
-        val packageUri = Uri.parse("package:${activity?.packageName}");
-        val intent = Intent(Intent.ACTION_DELETE, packageUri);
-        startActivity(intent);
+        val packageUri = Uri.parse("package:${activity?.packageName}")
+        val intent = Intent(Intent.ACTION_DELETE, packageUri)
+        startActivity(intent)
     }
 
 }

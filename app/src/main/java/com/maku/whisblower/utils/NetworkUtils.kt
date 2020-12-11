@@ -34,12 +34,7 @@ object NetworkUtils {
 
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            connectivityManager.registerDefaultNetworkCallback(networkCallback)
-        } else {
-            val builder = NetworkRequest.Builder()
-            connectivityManager.registerNetworkCallback(builder.build(), networkCallback)
-        }
+        connectivityManager.registerDefaultNetworkCallback(networkCallback)
 
         return networkLiveData
     }

@@ -98,13 +98,13 @@ class EmergencyFragment : Fragment() {
     fun AddItemsToRecyclerViewArrayList() {
         // Adding items to ArrayList
         source = ArrayList()
-        source!!.add("xmonster")
-        source!!.add("redbull")
-        source!!.add("cowthirst")
-        source!!.add("milkyway")
-        source!!.add("gsong")
-        source!!.add("hinote")
-        source!!.add("preparation")
+        source.add("xmonster")
+        source.add("redbull")
+        source.add("cowthirst")
+        source.add("milkyway")
+        source.add("gsong")
+        source.add("hinote")
+        source.add("preparation")
     }
 
     companion object {

@@ -63,4 +63,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_delete">MainActivity</string>
+    <string name="record_audio_and_send">Record Audio And Send</string>
+    <string name="pick_an_organisatioon">Pick An Organisatioon</string>
+    <string name="record_image">record image</string>
+    <string name="_1">1.</string>
+    <string name="_2">2.</string>
+    <string name="send">send</string>
+    <string name="victimx">VictimX</string>
+    <string name="emergency">Emergency</string>
+    <string name="arua_hill">Arua hill</string>
+    <string name="_16_16pm">16:16pm</string>
 </resources>
