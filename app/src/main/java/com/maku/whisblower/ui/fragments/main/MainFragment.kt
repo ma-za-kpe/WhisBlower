@@ -90,9 +90,9 @@ class MainFragment : Fragment() {
     private fun fetchOrg() {
         // Adding items to RecyclerView.
         AddItemsToRecyclerViewArrayList()
-        with(mViewBinding.recorg) {
-            this?.adapter = OrgAdapter(source)
-        }
+//        with(mViewBinding.recorg) {
+//            this?.adapter = OrgAdapter(source)
+//        }
     }
 
     private fun initViewModels() {

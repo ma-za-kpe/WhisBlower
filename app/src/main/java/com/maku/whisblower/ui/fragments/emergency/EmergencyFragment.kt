@@ -7,15 +7,26 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.firestore.FirebaseFirestore
 import com.maku.whisblower.R
 import com.maku.whisblower.databinding.FragmentEmergencyBinding
+import com.maku.whisblower.firebaseData.model.Organisations
+import com.maku.whisblower.ui.fragments.main.MainViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import timber.log.Timber
 
 
 class EmergencyFragment : Fragment() {
 
     private lateinit var binding: FragmentEmergencyBinding
     private lateinit var source: ArrayList<String>
+    val organ: ArrayList<Organisations> = ArrayList()
+
+    @ExperimentalCoroutinesApi
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,24 +41,40 @@ class EmergencyFragment : Fragment() {
         return binding.root
     }
 
+    @ExperimentalCoroutinesApi
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         initUiBindings()
-//        initViewModels()
+        initViewModels()
         initObservers()
     }
 
+    @ExperimentalCoroutinesApi
     private fun initObservers() {
        fetchOtherVictims()
     }
 
+    @ExperimentalCoroutinesApi
     private fun fetchOtherVictims() {
-        // Adding items to RecyclerView.
-        AddItemsToRecyclerViewArrayList()
-            with(binding.orgrec) {
-                adapter = OrgAdapter(source)
+
+        viewModel.forecasts.observe(viewLifecycleOwner, Observer {
+            Timber.d("forecast : $it")
+            for (document in it!!) {
+                val obj = document
+                Timber.d("forecaster " + obj)
+                organ.add(obj)
             }
+            Timber.d("organ $organ")
+            with(binding.orgrec) {
+                adapter = OrgAdapter(organ)
+            }
+
+        })
+
+        // other victims
+            AddItemsToRecyclerViewArrayList()
+
             with(binding.others) {
                 adapter = EmergencyAdapter(source) { item ->
                     goToOtherFragment(item)
@@ -61,16 +88,16 @@ class EmergencyFragment : Fragment() {
         //pass the 'context' here
         val alertDialog = AlertDialog.Builder(requireContext())
         alertDialog.setTitle("Rover Name: $item")
-        alertDialog.setPositiveButton("Close") {
-                dialog, which -> dialog.cancel()
+        alertDialog.setPositiveButton("Close") { dialog, which -> dialog.cancel()
         }
 
         val dialog = alertDialog.create()
         dialog.show()
     }
 
+    @ExperimentalCoroutinesApi
     private fun initViewModels() {
-        TODO("Not yet implemented")
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
     }
 
     private fun initUiBindings() {
@@ -94,8 +121,10 @@ class EmergencyFragment : Fragment() {
 
     }
 
+
     // Function to add items in RecyclerView.
     fun AddItemsToRecyclerViewArrayList() {
+
         // Adding items to ArrayList
         source = ArrayList()
         source.add("xmonster")

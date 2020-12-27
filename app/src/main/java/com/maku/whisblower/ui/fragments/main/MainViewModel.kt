@@ -1,13 +1,36 @@
 package com.maku.whisblower.ui.fragments.main
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
 import com.maku.whisblower.data.db.entity.VictimeRequest
 import com.maku.whisblower.data.repository.VictimRepository
+import com.maku.whisblower.firebaseData.model.Organisations
+import com.maku.whisblower.firebaseData.service.OrganisationsService
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
+@ExperimentalCoroutinesApi
 class MainViewModel : ViewModel() {
 
+    private val _organisations = MutableLiveData< LiveData<List<Organisations>?>>()
+    val organisations: LiveData< LiveData<List<Organisations>?>> = _organisations
+
+    init {
+        viewModelScope.launch {
+            _organisations.value = OrganisationsService.getOrganisations().asLiveData()
+            Timber.d("viewmodel " + OrganisationsService.getOrganisations())
+        }
+    }
+
+    //1
+    val forecasts: LiveData<List<Organisations>?> = OrganisationsService.getOrganisations().asLiveData()
+
+
+    //DELETE ALL THIS
     //hold spouse or attacker number
     var person: String = ""
     var org: String = ""

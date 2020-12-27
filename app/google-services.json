@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "561194763646",
+    "firebase_url": "https://sante-coffee-merchants.firebaseio.com",
+    "project_id": "sante-coffee-merchants",
+    "storage_bucket": "sante-coffee-merchants.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561194763646:android:bcb3304dfb498e1f7e9f2f",
+        "android_client_info": {
+          "package_name": "com.maku.santecoffeemerchants"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561194763646-sgk0gbsbveet83jh1acrj23dul43a37m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.maku.santecoffeemerchants",
+            "certificate_hash": "7722153c5bb3b72908429a7805134f7ea9c8309b"
+          }
+        },
+        {
+          "client_id": "561194763646-jk5ib0vqsrh9701o85iodhrdr8kk7r6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ08VSSzZkhunw0QccxwXYSTsMJOR54xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561194763646-jk5ib0vqsrh9701o85iodhrdr8kk7r6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:561194763646:android:fabf7d86062447c47e9f2f",
+        "android_client_info": {
+          "package_name": "com.maku.whisblower"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "561194763646-jk5ib0vqsrh9701o85iodhrdr8kk7r6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJ08VSSzZkhunw0QccxwXYSTsMJOR54xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "561194763646-jk5ib0vqsrh9701o85iodhrdr8kk7r6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
